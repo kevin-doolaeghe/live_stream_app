@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:live_stream_app/pages/home.dart';
-import 'package:live_stream_app/pages/stream_manager.dart';
+import 'package:live_stream_app/pages/home_page.dart';
+import 'package:live_stream_app/pages/stream_manager_page.dart';
 
 class StreamSetupPage extends StatefulWidget {
   const StreamSetupPage({super.key});
 
   @override
-  State<StatefulWidget> createState() => _StreamSetupPageState();
+  State<StreamSetupPage> createState() => _StreamSetupPageState();
 }
 
 class _StreamSetupPageState extends State<StreamSetupPage> {

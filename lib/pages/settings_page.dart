@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:live_stream_app/pages/home.dart';
+import 'package:live_stream_app/pages/home_page.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
 
   @override
-  State<StatefulWidget> createState() => _SettingsPageState();
+  State<SettingsPage> createState() => _SettingsPageState();
 }
 
 class _SettingsPageState extends State<SettingsPage> {

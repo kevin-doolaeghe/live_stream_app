@@ -1,17 +1,19 @@
-// import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:live_stream_app/app.dart';
-// import 'package:live_stream_app/global.dart';
+import 'package:live_stream_app/pages/home_page.dart';
 
 Future<void> main() async {
-  /*
-  try {
-    WidgetsFlutterBinding.ensureInitialized();
-    cameras = await availableCameras();
-  } on CameraException catch (e) {
-    logError(e.code, e.description);
-  }
-  */
+  runApp(const App());
+}
 
-  runApp(const LiveStreamApp());
+class App extends StatelessWidget {
+  const App({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(colorSchemeSeed: Theme.of(context).primaryColor),
+      debugShowCheckedModeBanner: false,
+      home: const HomePage(),
+    );
+  }
 }

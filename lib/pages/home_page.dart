@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:live_stream_app/pages/settings.dart';
-import 'package:live_stream_app/pages/stream_setup.dart';
+import 'package:live_stream_app/pages/settings_page.dart';
+import 'package:live_stream_app/pages/stream_setup_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  State<StatefulWidget> createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
