@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:live_stream_app/pages/camera_page.dart';
 import 'package:live_stream_app/pages/home_page.dart';
-import 'package:live_stream_app/pages/stream_manager_page.dart';
 
-class StreamSetupPage extends StatefulWidget {
-  const StreamSetupPage({super.key});
+class SetupPage extends StatefulWidget {
+  const SetupPage({super.key});
 
   @override
-  State<StreamSetupPage> createState() => _StreamSetupPageState();
+  State<SetupPage> createState() => _SetupPageState();
 }
 
-class _StreamSetupPageState extends State<StreamSetupPage> {
+class _SetupPageState extends State<SetupPage> {
   void _closeSetup() {
     Navigator.push(
       context,
@@ -17,10 +17,10 @@ class _StreamSetupPageState extends State<StreamSetupPage> {
     );
   }
 
-  void _startStream() {
+  void _startCamera() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const StreamManagerPage()),
+      MaterialPageRoute(builder: (context) => const CameraPage()),
     );
   }
 
@@ -57,7 +57,7 @@ class _StreamSetupPageState extends State<StreamSetupPage> {
             child: Padding(
               padding: const EdgeInsets.fromLTRB(0, 12, 0, 0),
               child: FloatingActionButton(
-                onPressed: _startStream,
+                onPressed: _startCamera,
                 child: const Icon(Icons.play_arrow),
               ),
             ),

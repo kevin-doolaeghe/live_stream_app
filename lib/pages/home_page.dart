@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:live_stream_app/pages/settings_page.dart';
-import 'package:live_stream_app/pages/stream_setup_page.dart';
+import 'package:live_stream_app/pages/setup_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   void _startStream() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const StreamSetupPage()),
+      MaterialPageRoute(builder: (context) => const SetupPage()),
     );
   }
 
@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
           child: Padding(
             padding: const EdgeInsets.fromLTRB(0, 24, 0, 24),
             child: Image.asset(
-              'assets/images/logo.jpg',
+              'assets/images/logo.png',
               fit: BoxFit.fitHeight,
             ),
           ),
