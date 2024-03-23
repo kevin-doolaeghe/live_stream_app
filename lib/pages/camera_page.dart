@@ -1,8 +1,7 @@
-import 'dart:typed_data';
-
 import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:live_stream_app/pages/home_page.dart';
 import 'package:tflite/tflite.dart';
 
@@ -56,10 +55,15 @@ class _CameraPageState extends State<CameraPage> {
   }
 
   Future<void> _initModel() async {
-    await Tflite.loadModel(
-      model: 'assets/models/model.tflite',
-      labels: 'assets/models/labels.txt',
-    );
+    Tflite.close();
+    try {
+      await Tflite.loadModel(
+        model: 'assets/tflite/model.tflite',
+        labels: 'assets/tflite/labels.txt',
+      );
+    } on PlatformException catch (e) {
+      debugPrint('Error: $e');
+    }
   }
 
   @override
@@ -166,10 +170,8 @@ class _CameraPageState extends State<CameraPage> {
         var byteBuffer = cameraImage.planes[0].bytes;
         var imageBytes = Uint8List.fromList(byteBuffer);
 
-        var recognitions = await Tflite.detectObjectOnBinary(
-              binary: imageBytes,
-            ) ??
-            [];
+        var recognitions =
+            await Tflite.detectObjectOnBinary(binary: imageBytes) ?? [];
         _updateUiWithRecognitions(recognitions, cameraImage);
       } finally {
         _isDetecting = false;
